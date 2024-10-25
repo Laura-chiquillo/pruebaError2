@@ -425,6 +425,22 @@ export class ConsultaComponent implements OnInit, AfterViewInit {
       console.error('No hay datos para exportar');
     }
 }
+
+openDialogoEstadistica(data: any = undefined, type:string, detail:boolean): void {
+  const dialogRef = this.dialog.open(DialogoEstadisticaComponent, {
+    data: {
+      type: type,
+      data: data,
+      detail: detail,
+    },
+    width: '60%'
+  });
+  dialogRef.afterClosed().subscribe((result) => {
+    if (result) {
+    } 
+  });
+}
+
   //PLAN DE TRABAJO
   openDialogoPlanTrabajo(data: any = undefined, type:string, detail:boolean): void {
     const dialogRef = this.dialog.open(DialogoPlanDeTrabajoComponent, {
